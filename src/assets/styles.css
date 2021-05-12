@@ -10,7 +10,7 @@ body {
   background-color: #39495c;
   border-radius: 5px;
   font-size: 18px;
-  width: 160px;
+  width: auto;
   height: 60px;
   color: white;
   padding: 20px;
@@ -78,6 +78,10 @@ li {
   font-size: 18px;
 }
 
+.out-of-stock-img {
+  opacity: 0.5;
+}
+
 .nav-bar {
   background: linear-gradient(-90deg, #84cf6a, #16c0b0);
   height: 60px;
@@ -139,6 +143,14 @@ p {
 .review-form .button {
   display: block;
   margin: 30px auto;
+}
+
+.cart-display {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: flex-end; */
 }
 
 select {
