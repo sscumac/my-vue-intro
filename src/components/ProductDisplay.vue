@@ -4,7 +4,7 @@
     <div class="product-container">
       <div class="product-image">
         <a :href="url">
-          <img :src="image" :class="{'out-of-stock-img': !inStock}"> <!-- v-bind directive dynamically binding attribute to expression-->
+          <img v-bind:src="image" :class="{'out-of-stock-img': !inStock}"> <!-- v-bind directive dynamically binding one way binding from data to template -->
         </a>
       </div> 
 
@@ -43,6 +43,8 @@
         </button>
       </div>
     </div>
+    <ReviewList v-if="reviews.length" :reviews="reviews"></ReviewList> 
+    <ReviewForm @review-submitted="addReview"></ReviewForm> 
   </div>
 
 </template>
@@ -50,9 +52,15 @@
 <script>
 import socks_green from '@/assets/images/socks_green.jpg'
 import socks_blue from '@/assets/images/socks_blue.jpg'
+import ReviewForm from './ReviewForm.vue'
+import ReviewList from './ReviewList.vue'
 
 export default {
   name: 'ProductDisplay',
+  components: {
+    ReviewForm,
+    ReviewList
+  },
   props: {
     premium: {
       type: Boolean,
@@ -71,7 +79,8 @@ export default {
             variants: [
               { id: 2234, color: 'green', image: socks_green, quantity: 50 },
               { id: 2235, color: 'blue', image: socks_blue, quantity: 0 }
-            ]
+            ],
+            reviews: []
         }
   },
   methods: {
@@ -84,6 +93,9 @@ export default {
     },
     updateVariant(index) {
       this.selectedVariant = index
+    },
+    addReview(review) { // review from the event payload
+      this.reviews.push(review)
     }
   },
   computed: { // computed properties

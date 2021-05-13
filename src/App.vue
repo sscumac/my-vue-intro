@@ -10,8 +10,6 @@
     </div>
       
     <ProductDisplay :premium="premium" @add-to-cart="updateCart" @rem-from-cart="remFromCart"></ProductDisplay> <!-- @ = listen for the event  -->
-    <ProductDisplay></ProductDisplay>
-    <ProductDisplay></ProductDisplay>
       
   <!-- <HelloWorld msg="Welcome to My Vue.js App"/> -->
 </template>
