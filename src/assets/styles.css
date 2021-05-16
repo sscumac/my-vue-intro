@@ -8,28 +8,20 @@ body {
 .button {
   margin: 30px;
   background-color: #39495c;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 18px;
   width: auto;
   height: 60px;
   color: white;
   padding: 20px;
-  box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
-    inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
-    inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
   text-align: center;
   cursor: pointer;
+  border: none;
+  transition: all 0.2s;
 }
 
-.cart {
-  margin: 25px 100px;
-  float: right;
-  border: 1px solid #d8d8d8;
-  padding: 10px 30px;
-  background-color: white;
-  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+.button:hover {
+  opacity: 0.9;
 }
 
 .color-circle {
@@ -54,13 +46,18 @@ h3 {
 }
 
 img {
-  border: 2px solid #d8d8d8;
+  /* border: 2px solid #d8d8d8; */
   width: 70%;
   margin: 40px;
   padding: 15px;
-  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  transition: all 0.2s;
+  /* -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57); */
+}
+
+img:hover {
+  opacity: 0.92;
 }
 
 input {
@@ -84,11 +81,9 @@ li {
 
 .nav-bar {
   background: linear-gradient(-90deg, #84cf6a, #16c0b0);
+  background: #15c087;
   height: 60px;
-  margin-bottom: 25px;
-  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
+  margin-bottom: 20px;
 }
 
 p {
@@ -146,11 +141,38 @@ p {
 }
 
 .cart-display {
-  width: 100vw;
-  height: 100px;
+  /* width: 90vw; */
+  margin-right: 2vw;
+  margin-left: 2vw;
+  height: 50px;
   display: flex;
+  align-items: center;
+  /* border-bottom: 1px solid; */
   /* flex-direction: column; */
   /* justify-content: flex-end; */
+}
+
+.cart-button {
+  border-bottom: solid 5px #39495c;
+  color: #282828;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cart-button:hover {
+  opacity: 0.9;
+}
+
+.cart {
+  margin: 25px 100px;
+  float: right;
+  font-size: 20px;
+  padding: 10px 30px;
+  font-size: 16px;
 }
 
 select {

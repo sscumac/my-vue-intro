@@ -17,6 +17,14 @@
       <option>1</option>
     </select>
 
+    <br>
+
+    <label for="recommend">Would you recommend this product?</label>
+    <select id="recommend" v-model.number="recommend">
+      <option>yes</option>
+      <option>no</option>
+    </select>
+
     <input type="submit" class="button" value="Submit">
 
   </form>
@@ -31,18 +39,20 @@ export default {
     return {
       name: '',
       review: '',
+      recommend: '',
       rating: null
     }
   },
   methods: {
     onSubmit() {
-      if (this.name === "" || this.rating === "" || this.review === "") {
+      if (this.name === "" || this.rating === "" || this.review === "" || this.recommend === "") {
         alert("Review incomplete")
         return // return out of the method
       } 
       let productReview = {
         name: this.name,
         review: this.review,
+        recommend: this.recommend,
         rating: this.rating
       }
       this.$emit("review-submitted", productReview) // this.$emit(eventName, payload)
@@ -50,6 +60,7 @@ export default {
       // clear this shit out
       this.name = "",
       this.review = "",
+      this.recommend = "",
       this.rating = null
     }
   }

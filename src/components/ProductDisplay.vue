@@ -16,12 +16,16 @@
 
         <p>Shipping: {{ shipping }} </p>
 
-        <ul>
-          <li v-for="(detail, index) in details" :key="index">{{ detail }}</li>
-        </ul>
-        <ul>
-          <li v-for="(size, index) in sizes" :key="index">{{ size }}</li>
-        </ul>
+        <span>made of: </span>
+        <span v-for="(detail, index) in details" :key="index">{{ showDetail(detail, index) }}</span>
+
+        <br>
+
+        <span>available sizes: </span>
+        <span v-for="(size, index) in sizes" :key="index">{{ size + ' ' }}</span>
+
+        <br>
+       
         <ul>
           <li v-for="(variant, index) in variants"
              :key="index" 
@@ -86,7 +90,6 @@ export default {
   methods: {
     addToCart() {
       this.$emit('add-to-cart', this.variants[this.selectedVariant].id); // emit the event
-      // console.log(this.variants[this.selectedVariant].id)
     },
     remFromCart() {
       this.$emit('rem-from-cart', this.variants[this.selectedVariant].id); // emit the event
@@ -96,6 +99,9 @@ export default {
     },
     addReview(review) { // review from the event payload
       this.reviews.push(review)
+    },
+     showDetail(detail, index) {
+      return index < this.details.length - 1 ? `${detail}, ` : `${detail}` ;
     }
   },
   computed: { // computed properties
@@ -109,7 +115,7 @@ export default {
       return this.variants[this.selectedVariant].quantity
     },
     showSale() {
-      return this.onSale ? 'is on Sale' : ' '
+      return this.onSale ? ' (on Sale)' : ' '
     },
     shipping() {
       return this.premium ? 'free' : 2.99

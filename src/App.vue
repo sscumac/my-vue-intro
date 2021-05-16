@@ -2,8 +2,8 @@
   <div class="nav-bar"></div>
 
     <div class="cart-display">
-      <div class="cart">Cart({{ cart.length }})</div>
-      <button class="button" 
+      <div class="cart">Cart ({{ cart.length }})</div>
+      <button class="cart-button" 
               v-on:click="clearCart">
               Clear Cart
       </button>
